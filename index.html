@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+
+</head>
+
+
+<div class="container text-center">
+  <div class="alert alert-warning alert-dismissible" id="noText">
+    <a href="#" class="close">&times;</a>
+    <strong>Please give me something to search</strong>
+  </div>
+</div>
+<div class="text-center">
+  <p id="mainTitle">Wikipedia Viewer</p>
+</div>
+<form onsubmit="return false">
+  <div class="text-center" id="results">
+    <input type="text" id="research" name "search" placeholder="What are you looking for?" onfocus="javascript:this.value=''">
+    <span id="totalHits"></span>
+  </div>
+</form>
+
+<div class="text-center">
+  <a id="newArticle">
+    <i class="fas fa-search fa-2x"></i>
+  </a>
+
+  <a id="randomArticle" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+    <i class="fas fa-random fa-2x"></i>
+  </a>
+</div>
+
+<div class="wrapper">
+  <div class="articles text-center"></div>
+</div>
+
+<a href="javascript:" id="keepGoing">
+  <i class="fa fa-arrow-down fa-2x" aria-hidden="true"></i>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+<script src="scripts/main.js"></script>
