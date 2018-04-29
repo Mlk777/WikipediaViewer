@@ -2,12 +2,15 @@
   "name": "WikipediaViewer",
   "version": "1.0.0",
   "description": "FreeCodeCamp Wikipedia Viewer Intermediate front end project",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "start": "run-script-os",
-    "start:win32": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files\\Firefox Developer Edition\\firefox.exe\"",
-    "//": "Hello! If you are having trouble running this command. Try changing Firefox Developer Edition to FirefoxDeveloperEdition or google chrome",
-    "start:darwin:linux": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser 'google chrome'"
+    "start:win32":
+      "browser-sync start --server . --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files\\Firefox Developer Edition\\firefox.exe\"",
+    "//":
+      "Hello! If you are having trouble running this command. Try changing Firefox Developer Edition to FirefoxDeveloperEdition or google chrome",
+    "start:darwin:linux":
+      "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 8979 --browser 'google chrome'"
   },
   "author": "Weis from Wes bos",
   "license": "ISC",
