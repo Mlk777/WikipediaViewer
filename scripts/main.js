@@ -1,5 +1,5 @@
 document.getElementById("noText").style.display = "none";
-var srOffSet = 10;
+//var srOffSet = 10;
 
 $(document).ready(function() {
   getArticles();
@@ -19,8 +19,8 @@ window.onscroll = function(ev) {
 };
 
 function getMoreArticles() {
+  var srOffSet = 10;
   $("#keepGoing").click(function() {
-    var srOffSet = 10;
     srOffSet += 10;
     var researched = document.getElementById("research").value;
     var url = "https://en.wikipedia.org/w/api.php?callback=?";
@@ -102,7 +102,7 @@ function getArticles() {
           "</span>"
       );
       document.getElementById("totalHits").style.display = "block";
-      $("#totalHits").fadeOut(15000, "linear");
+      $("#totalHits").fadeOut(5000, "linear");
       $.each(data.query.search, function(k, v) {
         var title = JSON.stringify(v.title);
         var pageId = JSON.stringify(v.pageid);

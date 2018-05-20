@@ -7,7 +7,7 @@ body {
   font-size: 3em;
   font-weight: 600;
   text-shadow: 1px 1px cornflowerblue;
-  letter-spacing: 0.150em;
+  letter-spacing: 0.15em;
 }
 
 input[type="text"] {
