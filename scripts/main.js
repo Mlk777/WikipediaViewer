@@ -1,17 +1,17 @@
 document.getElementById("noText").style.display = "none";
 //var srOffSet = 10;
 
-$(document).ready(function() {
+$(document).ready(function () {
   getArticles();
   getMoreArticles();
-  $("#research").keypress(function(event) {
+  $("#research").keypress(function (event) {
     if (event.keyCode === 13) {
       $(".fa-search").click();
     }
   });
 });
 
-window.onscroll = function(ev) {
+window.onscroll = function (ev) {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     document.getElementById("keepGoing").style.opacity = "0.5";
     $("#keepGoing").fadeIn(200);
@@ -20,7 +20,7 @@ window.onscroll = function(ev) {
 
 function getMoreArticles() {
   var srOffSet = 10;
-  $("#keepGoing").click(function() {
+  $("#keepGoing").click(function () {
     srOffSet += 10;
     var researched = document.getElementById("research").value;
     var url = "https://en.wikipedia.org/w/api.php?callback=?";
@@ -33,16 +33,16 @@ function getMoreArticles() {
       format: "json"
     };
 
-    $.getJSON(url, param, function(data, status) {
-      $.each(data.query.search, function(k, v) {
+    $.getJSON(url, param, function (data, status) {
+      $.each(data.query.search, function (k, v) {
         var title = JSON.stringify(v.title);
         var pageId = JSON.stringify(v.pageid);
         var articleUrl =
           "https://en.wikipedia.org/w/api.php?callback=?&action=query&pageids=" +
           pageId +
           "&prop=info|extracts&exintro=&explaintext=&inprop=url&format=json&formatversion=2";
-        $.getJSON(articleUrl, function(articleDatas) {
-          $.each(articleDatas.query.pages, function(key, value) {
+        $.getJSON(articleUrl, function (articleDatas) {
+          $.each(articleDatas.query.pages, function (key, value) {
             //console.log(value.extract.substr(0, 75));
             var abstract = JSON.stringify(value.extract.substr(0, 75));
             var fullUrlLink = value.fullurl;
@@ -51,7 +51,7 @@ function getMoreArticles() {
               "<p id='articleTitle'>" +
               title.substring(0, 30).replace(/\"/g, "") +
               "</p>" +
-              "<hr>" +
+              "<hr id='hr'>" +
               "<p id='articleSnippet'>" +
               "<i>" +
               abstract.substring(0, 50).replace(/\\|"/g, "") +
@@ -74,7 +74,7 @@ function getMoreArticles() {
 }
 
 function getArticles() {
-  $("#newArticle").click(function() {
+  $("#newArticle").click(function () {
     $(".articles").html("");
     var researched = document.getElementById("research").value;
     var url = "https://en.wikipedia.org/w/api.php?callback=?";
@@ -89,21 +89,21 @@ function getArticles() {
       //setTimeout(function(){ $("#noText").fadeOut("slow")  }, 3000);
       $("#noText").fadeOut(3000, "swing");
     }
-    $.getJSON(url, param, function(data, status) {
+    $.getJSON(url, param, function (data, status) {
       var totalHits = data.query.searchinfo.totalhits;
       $("#totalHits").empty();
       $("#totalHits").append(
         "<span>" +
-          totalHits +
-          " results found " +
-          "for the term " +
-          researched +
-          " !" +
-          "</span>"
+        totalHits +
+        " results found " +
+        "for the term " +
+        researched +
+        " !" +
+        "</span>"
       );
       document.getElementById("totalHits").style.display = "block";
       $("#totalHits").fadeOut(5000, "linear");
-      $.each(data.query.search, function(k, v) {
+      $.each(data.query.search, function (k, v) {
         var title = JSON.stringify(v.title);
         var pageId = JSON.stringify(v.pageid);
         var articleUrl =
@@ -111,8 +111,8 @@ function getArticles() {
           pageId +
           "&prop=info|extracts&exintro=&explaintext=&inprop=url&format=json&formatversion=2";
 
-        $.getJSON(articleUrl, function(articleDatas) {
-          $.each(articleDatas.query.pages, function(key, value) {
+        $.getJSON(articleUrl, function (articleDatas) {
+          $.each(articleDatas.query.pages, function (key, value) {
             var abstract = JSON.stringify(value.extract.substr(0, 75));
             var fullUrlLink = value.fullurl;
             var container =
@@ -120,7 +120,7 @@ function getArticles() {
               "<p id='articleTitle'>" +
               title.substring(0, 30).replace(/\"/g, "") +
               "</p>" +
-              "<hr>" +
+              "<hr id='hr'>" +
               "<p id='articleSnippet'>" +
               "<i>" +
               abstract.substring(0, 50).replace(/\\|"/g, "") +
@@ -142,7 +142,9 @@ function getArticles() {
   });
 }
 
-$("#keepGoing").click(function() {
+$("#keepGoing").click(function () {
   var currentHeight = document.body.clientHeight;
-  $("html, body").animate({ scrollTop: currentHeight }, 1500);
+  $("html, body").animate({
+    scrollTop: currentHeight
+  }, 1500);
 });

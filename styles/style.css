@@ -122,11 +122,11 @@ a {
   font-size: 20px;
 }
 
-hr {
+#hr {
   grid-area: hL;
-  margin: 0 auto 0 auto;
-  border: 0;
-  height: 2px;
+  margin: 0 auto 0 auto !important;
+  display: inline-table;
+  height: 1px;
   background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   width: 60%;
   opacity: 0.5;
@@ -137,7 +137,7 @@ hr {
   font-weight: bold;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px) and (max-height: 900px) {
   #articleSnippet {
     font-size: 0.75em;
     margin: 0;
