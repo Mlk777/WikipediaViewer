@@ -12,7 +12,7 @@ $(document).ready(function () {
 });
 
 window.onscroll = function (ev) {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  if (window.innerHeight + window.scrollY >= (document.body.offsetHeight - 10)) {
     document.getElementById("keepGoing").style.opacity = "0.5";
     $("#keepGoing").fadeIn(200);
   }
