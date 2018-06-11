@@ -56,7 +56,8 @@ input[type="text"]:focus {
   grid-area: aT;
   margin: 0;
   padding-top: 5px;
-  font-size: 1.075em;
+  font-size: 18px;
+  /* 1.075em */
   font-weight: 500;
   font-family: "Source Sans Pro", sans-serif;
 }
@@ -64,6 +65,7 @@ input[type="text"]:focus {
 #articleSnippet {
   grid-area: aS;
   margin: 0;
+  font-size: 16px;
 }
 
 #articleLink {
@@ -77,6 +79,7 @@ p {
 
 a {
   cursor: pointer;
+  font-size: 14px;
 }
 
 #keepGoing {
@@ -138,17 +141,15 @@ a {
   font-weight: bold;
 }
 
-@media screen and (max-width: 1440px) and (max-height: 900px) {
+@media screen and (max-width: 1400px) {
   #articleSnippet {
-    font-size: 0.75em;
-    margin: 0;
+    margin: 0 !important;
   }
   #articleTitle {
-    font-size: 0.75em;
     margin: 0;
   }
   a {
-    font-size: 0.5em;
+    font-size: 12px;
   }
   .box {
     height: 250px;
@@ -159,8 +160,8 @@ a {
   input[type="text"] {
     width: 150px;
   }
-  .box hr {
+  #hr {
     opacity: 0.7;
-    margin: 0 auto 0 auto;
+    margin: 0 auto 0 auto !important;
   }
 }
