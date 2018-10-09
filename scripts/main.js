@@ -1,5 +1,4 @@
 document.getElementById("noText").style.display = "none";
-//var srOffSet = 10;
 
 $(document).ready(function () {
   getArticles();
